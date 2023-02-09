@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import emailjs from 'emailjs-com';
-import { init } from 'emailjs-com';
 import './ContactForm.styles.css';
 
 const ContactForm = () => {
@@ -17,15 +16,14 @@ const ContactForm = () => {
         return regex.test(String(email).toLowerCase());
     }
 
-    init('user_id');
+    emailjs.init('_-StY8CJefgal_LTd');
 
     const submit = () => {
 
-        if (name && email && phone && message && isValidEmail === true) {
+        if (name && email && phone && message && isValidEmail) {
 
             const serviceId = 'service_n5w37sf';
             const templateId = 'template_53rk0qg';
-            // const userId = 'user_id';
             const templateParams = {
                 name,
                 email,
@@ -35,7 +33,7 @@ const ContactForm = () => {
 
             emailjs.send(serviceId, templateId, templateParams)
                 .then(response => console.log(response))
-                .then(error => console.log(error))
+                .then(error => console.log(error));
 
             setName('');
             setEmail('');
@@ -43,10 +41,9 @@ const ContactForm = () => {
             setMessage('');
             setEmailSent(true);
         } else {
-            alert("Por favor, preencha todos os campos corretamente.")
+            alert("Por favor, preencha todos os campos corretamente.");
         }
     }
-
 
     return (
         <div className="form">
