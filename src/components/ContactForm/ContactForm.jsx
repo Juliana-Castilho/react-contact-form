@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
+import InputMask from "react-input-mask";
 import "./ContactForm.styles.scss";
 
 const ContactForm = () => {
@@ -68,12 +69,15 @@ const ContactForm = () => {
           />
 
           <label htmlFor="phone">Telefone</label>
-          <input
-            type="text"
-            placeholder="(11) 99999-9999"
-            name="phone"
+          <InputMask
             value={phone}
-            onChange={(e) => setPhone(e.target.value)}
+            onChange={(e) => {
+              if (e.target.value.replace("-", "").length === 14) {
+                setPhone(e.target.value);
+              }
+            }}
+            mask="(99) 99999-9999"
+            placeholder="(99) 99999-9999"
           />
         </div>
         <div className="input-message">
