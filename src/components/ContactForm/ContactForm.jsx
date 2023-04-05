@@ -49,7 +49,7 @@ const ContactForm = () => {
   return (
     <div className="form">
       <div className="contact-form">
-        <div className="input-info">
+        <div className="input-info" data-testid="input-info">
           <label htmlFor="name">Seu nome</label>
           <input
             type="text"
@@ -80,7 +80,7 @@ const ContactForm = () => {
             placeholder="(99) 99999-9999"
           />
         </div>
-        <div className="input-message">
+        <div className="input-message" data-testid="input-message">
           <label htmlFor="message">Mensagem</label>
           <textarea
             placeholder="Deixe sua mensagem"
@@ -90,8 +90,8 @@ const ContactForm = () => {
           ></textarea>
         </div>
       </div>
-      <div className="input-sent">
-        <button onClick={submit}>Enviar mensagem</button>
+      <div className="input-sent" data-testid="input-sent">
+        <button data-testid="button-submit" onClick={submit}>Enviar mensagem</button>
 
         <span className={emailSent ? "visible" : null}>
           Obrigado por sua mensagem. Entraremos em contato em breve.
