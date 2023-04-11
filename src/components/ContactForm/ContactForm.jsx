@@ -91,7 +91,9 @@ const ContactForm = () => {
         </div>
       </div>
       <div className="input-sent" data-testid="input-sent">
-        <button data-testid="button-submit" onClick={submit}>Enviar mensagem</button>
+        <button data-testid="button-submit" onClick={submit}>
+          Enviar mensagem
+        </button>
 
         <span className={emailSent ? "visible" : null}>
           Obrigado por sua mensagem. Entraremos em contato em breve.
