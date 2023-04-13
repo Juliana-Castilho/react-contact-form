@@ -41,15 +41,17 @@ const ContactForm = () => {
       setPhone("");
       setMessage("");
       setEmailSent(true);
+      document.querySelector(".sucess").style.display = "block";
+      document.querySelector(".failed").style.display = "none";
     } else {
-      alert("Por favor, preencha todos os campos corretamente.");
+      document.querySelector(".failed").style.display = "block";
     }
   };
 
   return (
     <div className="form">
       <div className="contact-form">
-        <div className="input-info" data-testid="input-info">
+        <div className="input input-info" data-testid="input-info">
           <label htmlFor="name">Seu nome</label>
           <input
             type="text"
@@ -80,7 +82,7 @@ const ContactForm = () => {
             placeholder="(99) 99999-9999"
           />
         </div>
-        <div className="input-message" data-testid="input-message">
+        <div className="input input-message" data-testid="input-message">
           <label htmlFor="message">Mensagem</label>
           <textarea
             placeholder="Deixe sua mensagem"
@@ -95,8 +97,12 @@ const ContactForm = () => {
           Enviar mensagem
         </button>
 
-        <span className={emailSent ? "visible" : null}>
+        <span className="sucess">
           Obrigado por sua mensagem. Entraremos em contato em breve.
+        </span>
+
+        <span className="failed">
+          Por favor, preencha todos os campos corretamente.
         </span>
       </div>
     </div>
