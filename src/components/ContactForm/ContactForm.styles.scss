@@ -46,11 +46,6 @@ $light-grey-color: #f9f9fb;
       font-size: 10px;
     }
 
-    .input-message {
-      text-align: left;
-      flex: 50%;
-    }
-
     .input-message label {
       font-size: 10px;
     }
@@ -96,7 +91,6 @@ $light-grey-color: #f9f9fb;
 
 .input-sent {
   span {
-    display: flex;
     color: $primary-color;
     font-size: 14px;
   }
