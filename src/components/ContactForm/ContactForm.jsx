@@ -20,6 +20,9 @@ const ContactForm = () => {
 
   emailjs.init(process.env.REACT_APP_EMAIL_JS_INIT);
 
+  const submitSucess = document.querySelector(".sucess");
+  const submitFailed = document.querySelector(".failed");
+
   const submit = () => {
     if (name && email && phone && message && isValidEmail) {
       const serviceId = process.env.REACT_APP_EMAIL_JS_SERVICE_ID;
@@ -41,10 +44,14 @@ const ContactForm = () => {
       setPhone("");
       setMessage("");
       setEmailSent(true);
-      document.querySelector(".sucess").style.display = "block";
-      document.querySelector(".failed").style.display = "none";
+      submitSucess.style.display = "block";
+      submitFailed.style.display = "none";
+
+      setTimeout(function () {
+        submitSucess.style.display = "none";
+      }, 5000);
     } else {
-      document.querySelector(".failed").style.display = "block";
+      submitFailed.style.display = "block";
     }
   };
 
