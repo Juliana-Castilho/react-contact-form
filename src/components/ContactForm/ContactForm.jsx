@@ -8,7 +8,7 @@ const ContactForm = () => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
-  const [emailSent, setEmailSent] = useState(false);
+  const setEmailSent = false;
 
   const isValidEmail = (email) => {
     const regex =
